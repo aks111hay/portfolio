@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills</title>
+    <title>About</title>
+    <link rel="stylesheet" href="stylesheet.css">
     <style>
-        /* Reset margins and padding for all elements */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body styling with a purple gradient background */
+        /* Body styling */
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #6a1b9a, #9c4dcc);
-            color: #fff;
+            background-color: #f4f7f6;
+            color: #333;
             line-height: 1.6;
-            margin: 20px;
+            padding: 1.25rem;
         }
 
         /* Navigation styling */
         nav {
             background-color: #333;
-            padding: 15px;
+            padding: 1rem;
             text-align: center;
-            margin-bottom: 20px;
-            border-radius: 8px;
+            border-radius: 0.5rem;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+            margin: 0 1rem;
+            font-size: 1.125rem;
             transition: color 0.3s ease;
         }
 
@@ -42,97 +42,137 @@
             color: #f4a261;
         }
 
-        /* Main container styling */
-        .box {
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 1000px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            color: #333;
+        /* Toggle button */
+        .toggle-btn {
+            display: none;
+            background-color: #333;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 0.5rem;
         }
 
-        .box h2 {
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #333;
+        /* Navbar for mobile */
+        nav.mobile-hidden {
+            display: none;
         }
 
-        /* Flexbox for the boxes to arrange images neatly */
-        .box img {
-            object-fit: contain;
-            margin: 10px;
-            border-radius: 8px;
-        }
-
-        .box.languages, 
-        .box.databases, 
-        .box.frameworks, 
-        .box.tools {
+        /* Container styling */
+        .container {
+            max-width: 60rem;
+            margin: 0 auto;
+            padding: 2.5rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            gap: 1.25rem;
         }
 
-        /* Image container styling */
+        /* Profile Image Styling */
         .pic {
-            width: 80px;
-            height: 80px;
-            margin: 10px;
-            transition: transform 0.3s ease;
+            width: 13.75rem; /* 220px */
+            height: 13.75rem; /* 220px */
+            border-radius: 50%;
+            border: 0.3125rem solid #f4a261; /* 5px */
+            background-color: #fff;
         }
 
-        .pic:hover {
-            transform: scale(1.1);
+        /* About Box Styling */
+        .about {
+            background-color: #6a1b9a;
+            color: white;
+            border-radius: 0.625rem; /* 10px */
+            padding: 1.25rem;
+            width: 100%;
+            max-width: 25rem; /* 400px */
+            text-align: center;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
         }
 
-        /* Footer styling */
+        .about h1 {
+            font-size: 1.75rem; /* 28px */
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            font-size: 1.125rem; /* 18px */
+            margin-bottom: 1rem;
+        }
+
+        .about small {
+            font-size: 1rem;
+            color: #ddd;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Footer Styling */
         footer {
             text-align: center;
-            margin-top: 40px;
-            color: #eee;
-            font-size: 14px;
+            margin-top: 2.5rem;
+            color: #777;
+            font-size: 0.875rem;
         }
 
         /* Responsive Styling */
         @media (max-width: 768px) {
-            nav a {
+            .toggle-btn {
                 display: block;
-                margin: 10px 0;
-                font-size: 16px;
+                margin: 0 auto 1rem;
             }
 
-            .box img {
-                width: 60px;
-                height: 60px;
+            nav {
+                display: none;
+                flex-direction: column;
+                text-align: left;
             }
 
-            .box h2 {
-                font-size: 24px;
+            nav.mobile-visible {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0.5rem 0;
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 1.25rem;
+            }
+
+            .pic {
+                width: 10rem; /* 160px */
+                height: 10rem; /* 160px */
+            }
+
+            .about {
+                max-width: 100%;
+            }
+
+            .about h1 {
+                font-size: 1.5rem; /* 24px */
+            }
+
+            .about p {
+                font-size: 1rem; /* 16px */
             }
 
             footer {
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .box img {
-                width: 50px;
-                height: 50px;
-            }
-
-            .box h2 {
-                font-size: 20px;
+                font-size: 0.75rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <nav>
+    <button class="toggle-btn" onclick="toggleNavbar()">☰ Menu</button>
+
+    <nav id="navbar">
         <a href="index.html">Home</a>
         <a href="education.html">Education</a>
         <a href="about.html">About</a>
@@ -142,37 +182,35 @@
         <a href="contacts.html">Contacts</a>
     </nav>
 
-    <div class="box languages">
-        <h2>Languages</h2>
-        <img src="python.png" class="pic" alt="Python">
-        <img src="java.webp" class="pic" alt="Java">
-        <img src="js.png" class="pic" alt="JavaScript">
-        <img src="html.png" class="pic" alt="HTML">
-        <img src="css.png" class="pic" alt="CSS">
-        <img src="sql.png" class="pic" alt="SQL">
-    </div>
+    <div class="container">
+        <!-- Profile Image -->
+        <img src="akshay.jpg" class="pic" alt="Akshay Kumar">
 
-    <div class="box databases">
-        <h2>Databases</h2>
-        <img src="sqlite.jpg" class="pic" alt="SQLite">
-        <img src="postgresql.png" class="pic" alt="PostgreSQL">
-    </div>
+        <!-- About Section -->
+        <div class="about">
+            <h1>Akshay Kumar</h1>
+            <p>Aspiring Data Scientist and Web Developer with a strong foundation in computer science and hands-on experience in building impactful projects. I am currently enhancing my expertise in machine learning, data science, and web technologies.</p>
+        </div>
 
-    <div class="box frameworks">
-        <h2>Frameworks</h2>
-        <img src="flask.png" class="pic" alt="Flask">
-        <img src="vue.png" class="pic" alt="Vue.js">
-    </div>
-
-    <div class="box tools">
-        <h2>Tools</h2>
-        <img src="git.svg" class="pic" alt="Git">
-        <img src="jupyter.png" class="pic" alt="Jupyter">
+        <!-- Contact Information Section -->
+        <div class="about contact-info">
+            <p><strong>Phone:</strong> 9334727093</p>
+            <p><strong>Email:</strong> askh123600@gmail.com</p>
+            <p><strong>DOB:</strong> 05/01/2004</p>
+            <p><strong>City:</strong> Aurangabad, Maharashtra</p>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2025 Akshay Kumar. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function toggleNavbar() {
+            const navbar = document.getElementById("navbar");
+            navbar.classList.toggle("mobile-visible");
+        }
+    </script>
 
 </body>
 </html>
