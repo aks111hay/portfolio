@@ -6,112 +6,138 @@
     <title>Home</title>
     <link rel="stylesheet" href="stylesheet.css">
     <style>
-        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        /* Body Styling */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f7f6;
             color: #333;
             line-height: 1.6;
-            padding: 20px;
+            padding: 2rem;
         }
-
-        /* Navigation Styling */
         nav {
             background-color: #333;
-            padding: 15px;
+            padding: 1rem;
             text-align: center;
-            margin-bottom: 20px;
-            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
         }
-
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+            margin: 0 1rem;
+            font-size: 1.2rem;
             transition: color 0.3s ease;
         }
-
         nav a:hover {
             color: #f4a261;
         }
-
-        /* Container Styling */
         .container {
-            max-width: 1050px;
+            max-width: 65rem; /* Equivalent to 1050px */
             margin: 0 auto;
             text-align: center;
             background-color: rgba(163, 90, 192, 0.588);
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 0.625rem; /* Equivalent to 10px */
+            padding: 2.5rem; /* Equivalent to 40px */
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
         }
-
-        /* Profile Picture Styling */
         .container img {
-            margin-top: 5px;
-            width: 150px;
-            height: 150px;
+            margin-top: 0.5rem;
+            width: 9.375rem; /* Equivalent to 150px */
+            height: 9.375rem; /* Equivalent to 150px */
             border-radius: 50%;
-            margin-bottom: 20px;
-            border: 5px solid #f4a261;
+            margin-bottom: 1.25rem; /* Equivalent to 20px */
+            border: 0.3125rem solid #f4a261; /* Equivalent to 5px */
         }
-
-        /* Name Styling */
         .container h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 2.25rem; /* Equivalent to 36px */
+            margin-bottom: 1.25rem; /* Equivalent to 20px */
             color: #fcf9f9;
         }
-
-        /* Skills Styling */
         .box {
             display: inline-block;
             background-color: #f4a261;
             color: white;
-            margin: 10px 15px;
-            padding: 12px 25px;
-            font-size: 18px;
-            border-radius: 25px;
+            margin: 0.625rem 0.9375rem; /* Equivalent to 10px 15px */
+            padding: 0.75rem 1.5rem; /* Equivalent to 12px 25px */
+            font-size: 1.125rem; /* Equivalent to 18px */
+            border-radius: 1.5625rem; /* Equivalent to 25px */
             transition: background-color 0.3s ease;
         }
-
         .box:hover {
             background-color: #e76f51;
         }
-
-        /* Social Icons Styling */
         .container .social-icons {
-            margin-top: 20px;
-            width:auto;
+            margin-top: 1.25rem; /* Equivalent to 20px */
         }
-
         .social-icons a {
-            margin: 0 15px;
-            color: #333;
+            margin: 0 0.9375rem; /* Equivalent to 15px */
+            color: #fffefe;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
         .social-icons a:hover {
             color: #f4a261;
         }
-
-        /* Footer Styling */
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 2.5rem; /* Equivalent to 40px */
             color: #777;
-            font-size: 14px;
+            font-size: 0.875rem; /* Equivalent to 14px */
+        }
+    
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 1rem;
+            }
+            .container {
+                padding: 2rem;
+            }
+            .container img {
+                width: 7.5rem; /* Equivalent to 120px */
+                height: 7.5rem; /* Equivalent to 120px */
+            }
+            .container h1 {
+                font-size: 1.75rem; /* Equivalent to 28px */
+            }
+            .box {
+                font-size: 1rem; /* Equivalent to 16px */
+            }
+            footer {
+                font-size: 0.75rem; /* Equivalent to 12px */
+            }
+        }
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 0.875rem; /* Equivalent to 14px */
+            }
+            .container {
+                padding: 1.5rem;
+            }
+            .container img {
+                width: 6.25rem; /* Equivalent to 100px */
+                height: 6.25rem; /* Equivalent to 100px */
+            }
+            .container h1 {
+                font-size: 1.5rem; /* Equivalent to 24px */
+            }
+            .box {
+                font-size: 0.875rem; /* Equivalent to 14px */
+                padding: 0.625rem 1rem; /* Equivalent to 10px 16px */
+            }
+            .social-icons a {
+                margin: 0 0.625rem; /* Equivalent to 10px */
+            }
+            footer {
+                font-size: 0.75rem; /* Equivalent to 12px */
+            }
         }
     </style>
+    
 </head>
 <body>
 
