@@ -5,26 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            line-height: 1.6;
+            padding: 1.25rem;
+        }
+
+        /* Navigation Styling */
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            border-radius: 0.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: aqua;
+        }
+
+        .toggle-btn {
+            display: none;
+            background-color: #333;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        nav.mobile-hidden {
+            display: none;
+        }
+
+        nav.mobile-visible {
+            display: block;
+        }
+
+        /* Container Styling */
+        .container {
+            margin-top: 80px;
+            max-width: 1200px;
+            padding: 40px;
+            border-radius: 0.625rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+        }
+
+        .education-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 30%; /* Ensures three boxes per row */
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .box img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .box a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .box a:hover {
+            color: aqua;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: #777;
+            font-size: 0.875rem; /* 14px */
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .toggle-btn {
+                display: block;
+                margin: 0 auto 1rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            nav.mobile-visible {
+                display: block;
+            }
+
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+                font-size: 1rem; /* 16px */
+            }
+
+            .education-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .box {
+                width: 90%; /* Full width for smaller screens */
+            }
+
+            .container {
+                padding: 1.25rem;
+            }
+        }
+    </style>
 </head>
-<style>
-    .container{
-        margin-top: 80px;
-        max-width: 1200px;
-        padding:80px;
-    }
-    .box{
-        margin:20px;
-    }
-    .container a{
-        text-decoration: none;
-        color:white;
-    }
-    .container a:hover{
-        color:aqua;
-    }
-</style>
 <body>
-    <nav>
+    <button class="toggle-btn" onclick="toggleNavbar()">☰ Menu</button>
+    <nav id="navbar" class="mobile-visible">
         <a href="index.html">Home</a>
         <a href="education.html">Education</a>
         <a href="about.html">About</a>
@@ -33,28 +157,41 @@
         <a href="#">Resume</a>
         <a href="contacts.html">Contacts</a>
     </nav>
+
     <div class="container">
-        <div class="box">
-            <img src="IITMOD-Logo.svg">
-            <a href="https://study.iitm.ac.in/ds/"><p>IIT MADRAS BS Degree</p></a>
-            <p>BS in Data science and Programming</p>
-            <p>2023-2027</p>
-            <P>CGPA:8.5+</P>
-        </div>
-        <div class="box">
-            <img src="NIELIT_logo.jpg" style="width:281px; height:auto;">
-            <a href="https://nielit.gov.in/aurangabad/node/12229/"><p>NIELIT Aurangabad</p></a>
-            <p>BTECH in Electronics Engineering</p>
-            <p>2022-2026</p>
-            <p>CGPA : 7.5+</p>
-        </div>
-        <div class="box" style="padding:40px;padding-top:57px;">
-            <img src="loyola.png" style="width:281px; height:auto;">
-            <a href="https://www.loyolapatna.edu.in/"><p>Loyola High school</p></a>
-            <p>CBSE ClASS 12</p>
-            <p>2019-2021</p>
-            <p>Percentage : 89%</p>
+        <div class="education-row">
+            <div class="box">
+                <img src="IITMOD-Logo.svg" alt="IIT Madras Logo">
+                <a href="https://study.iitm.ac.in/ds/"><p>IIT MADRAS BS Degree</p></a>
+                <p>BS in Data Science and Programming</p>
+                <p>2023-2027</p>
+                <p>CGPA: 8.5+</p>
+            </div>
+            <div class="box">
+                <img src="NIELIT_logo.jpg" alt="NIELIT Aurangabad Logo">
+                <a href="https://nielit.gov.in/aurangabad/node/12229/"><p>NIELIT Aurangabad</p></a>
+                <p>B.Tech in Electronics Engineering</p>
+                <p>2022-2026</p>
+                <p>CGPA: 7.5+</p>
+            </div>
+            <div class="box">
+                <img src="loyola.png" alt="Loyola High School Logo">
+                <a href="https://www.loyolapatna.edu.in/"><p>Loyola High School</p></a>
+                <p>CBSE Class 12</p>
+                <p>2019-2021</p>
+                <p>Percentage: 89%</p>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2025 Akshay Kumar. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function toggleNavbar() {
+            const navbar = document.getElementById("navbar");
+            navbar.classList.toggle("mobile-visible");
+        }
+    </script>
 </body>
 </html>
