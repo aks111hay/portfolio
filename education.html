@@ -21,50 +21,6 @@
             padding: 1.25rem;
         }
 
-        /* Navigation Styling */
-        nav {
-            background-color: #333;
-            padding: 1rem;
-            text-align: center;
-            margin-bottom: 1.25rem;
-            border-radius: 0.5rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1.125rem;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: aqua;
-        }
-
-        .toggle-btn {
-            display: none;
-            background-color: #333;
-            color: white;
-            border: none;
-            font-size: 1.5rem;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 0.5rem;
-            text-align: center;
-        }
-
-        nav.mobile-hidden {
-            display: none;
-        }
-
-        nav.mobile-visible {
-            display: block;
-        }
-
         /* Container Styling */
         .container {
             margin-top: 80px;
@@ -73,7 +29,28 @@
             border-radius: 0.625rem;
             box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
         }
-
+        /* Navbar Styles */
+        nav {
+            background-color: #333;
+            padding: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.3rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: #f4a261;
+            color: #fff;
+        }
         .education-row {
             display: flex;
             justify-content: space-between;
@@ -101,6 +78,22 @@
         .box a:hover {
             color: aqua;
         }
+        /* Mobile Menu Button */
+        .toggle-button {
+            display: none;
+            background-color: #333;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.6rem 7.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+        
+        .toggle-button:focus {
+            outline: none;
+        }
 
         /* Footer Styling */
         footer {
@@ -112,24 +105,7 @@
 
         /* Responsive Styling */
         @media (max-width: 768px) {
-            .toggle-btn {
-                display: block;
-                margin: 0 auto 1rem;
-            }
-
-            nav {
-                display: none;
-            }
-
-            nav.mobile-visible {
-                display: block;
-            }
-
-            nav a {
-                display: block;
-                margin: 0.5rem 0;
-                font-size: 1rem; /* 16px */
-            }
+            
 
             .education-row {
                 flex-direction: column;
@@ -142,6 +118,25 @@
 
             .container {
                 padding: 1.25rem;
+            }
+            .toggle-button {
+                display: block;
+            }
+        
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                background: #333;
+                left: 0;
+                top: 50px;
+                padding: 1rem 0;
+            }
+        
+            nav a {
+                display: block;
+                padding: 0.75rem;
+                font-size: 1rem;
             }
         }
     </style>
@@ -188,26 +183,37 @@
         <p>&copy; 2025 Akshay Kumar. All Rights Reserved.</p>
     </footer>
     <script>
-        function toggleNavbar() {
-            const navbar = document.getElementById("navbar");
-            navbar.classList.toggle("mobile-visible");
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            if (navbar.style.display === 'block') {
+                navbar.style.display = 'none';
+            } else {
+                navbar.style.display = 'block';
+            }
         }
-        document.addEventListener("DOMContentLoaded", function () {
-    const toggleButton = document.querySelector(".toggle-btn");
-    const navbar = document.getElementById("navbar");
+        // Close menu when clicking outside
+document.addEventListener("click", function (event) {
+    const navbar = document.getElementById('navbar');
+    const toggleButton = document.querySelector('.toggle-button');
 
-    toggleButton.addEventListener("click", function (event) {
-        event.stopPropagation(); // Prevent immediate closing
-        navbar.classList.toggle("mobile-visible");
-    });
-
-    document.addEventListener("click", function (event) {
-        if (!navbar.contains(event.target) && !toggleButton.contains(event.target)) {
-            navbar.classList.remove("mobile-visible");
-        }
-    });
+    if (navbar.style.display === 'block' && !navbar.contains(event.target) && !toggleButton.contains(event.target)) {
+        navbar.style.display = 'none';
+    }
 });
-
-    </script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const navbar = document.getElementById("navbar");
+                const toggleButton = document.querySelector(".toggle-button");
+                const skillBoxes = document.querySelectorAll(".box");
+                const profileImage = document.querySelector(".container img");
+            
+                // Navbar Slide-in Animation
+                toggleButton.addEventListener("click", function () {
+                    if (navbar.style.maxHeight) {
+                        navbar.style.maxHeight = null;
+                    } else {
+                        navbar.style.maxHeight = navbar.scrollHeight + "px";
+                    }
+                });
+                </script>
 </body>
 </html>
