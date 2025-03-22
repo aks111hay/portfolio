@@ -168,13 +168,23 @@
     white-space: nowrap;
     border-right: 3px solid white; /* Simulates a typing cursor */
     width: 0;
-    font-size: 38px;
+    font-size: clamp(24px, 5vw, 38px); /* Responsive font size */
     font-weight: bold;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    animation: typing 3s steps(20) forwards, blink 0.6s infinite;
+    animation: typing 3s steps(15) forwards, blink 0.6s infinite;
+    max-width: 100%; /* Prevents overflow */
 }
 
+/* Adjustments for smaller screens */
+@media (max-width: 480px) {
+    .typing-effect {
+        font-size: 24px; /* Decrease font size for very small screens */
+        white-space: normal; /* Allow wrapping */
+        display: block;
+        text-align: center;
+    }
+}
 
         
     </style>
@@ -194,7 +204,7 @@
     </nav>
 
     <div class="container">
-        <img src="akshay.jpg" alt="Akshay Kumar  .." class="pic">
+        <img src="akshay.jpg" alt="Akshay Kumar" class="pic">
         <h1 class="typing-effect">Akshay Kumar</h1>
         <div class="box">Machine Learning</div>
         <div class="box">Data Science</div>
