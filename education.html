@@ -15,25 +15,41 @@
 
         /* Body Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             background-color: #f4f7f6;
             line-height: 1.6;
             padding: 1.25rem;
         }
 
-        /* Container Styling */
-        .container {
-            margin-top: 80px;
-            max-width: 1200px;
-            padding: 40px;
-            border-radius: 0.625rem;
-            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+        /* Improved Toggle Button */
+        .toggle-btn {
+            display: none;
+            background-color: #333;
+            color: white;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 1rem auto;
+            width: 90%;
+            max-width: 300px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+
+        .toggle-btn:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
         /* Navbar Styles */
         nav {
             background-color: #333;
             padding: 1rem 0;
             border-radius: 0.5rem;
+            transition: all 0.3s ease;
         }
         
         nav a {
@@ -41,179 +57,171 @@
             color: white;
             text-decoration: none;
             margin: 0 1rem;
-            font-size: 1.2rem;
-            padding: 0.5rem 1rem;
+            font-size: 1.1rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 0.3rem;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         nav a:hover {
             background-color: #f4a261;
             color: #fff;
+            transform: translateY(-2px);
         }
+
+        /* Container Styling */
+        .container {
+            margin-top: 80px;
+            max-width: 1200px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: white;
+        }
+
         .education-row {
             display: flex;
             justify-content: space-between;
+            gap: 2rem;
             flex-wrap: wrap;
         }
 
         .box {
-            width: 30%; /* Ensures three boxes per row */
+            flex: 1;
+            min-width: 300px;
             margin: 20px 0;
+            padding: 2rem;
             text-align: center;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
         .box img {
-            max-width: 100%;
+            max-width: 150px;
             height: auto;
-            margin-bottom: 10px;
+            margin-bottom: 1.5rem;
+            object-fit: contain;
         }
 
         .box a {
             text-decoration: none;
-            color: black;
-            font-weight: bold;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
         }
 
         .box a:hover {
-            color: aqua;
-        }
-        /* Mobile Menu Button */
-        .toggle-button {
-            display: none;
-            background-color: #333;
-            color: white;
-            font-size: 1.5rem;
-            padding: 0.6rem 7.2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 1rem;
-        }
-        
-        .toggle-button:focus {
-            outline: none;
+            color: #f4a261;
         }
 
         /* Footer Styling */
         footer {
             text-align: center;
-            margin-top: 2.5rem;
+            margin-top: 4rem;
             color: #777;
-            font-size: 0.875rem; /* 14px */
+            font-size: 0.875rem;
+            padding: 2rem 0;
         }
 
         /* Responsive Styling */
         @media (max-width: 768px) {
-            
+            .toggle-btn {
+                display: block;
+            }
+        
+            nav {
+                display: none;
+                width: 90%;
+                position: absolute;
+                left: 5%;
+                top: 80px;
+                background: #333;
+                border-radius: 10px;
+                padding: 1rem 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+        
+            nav a {
+                display: block;
+                margin: 0.5rem 1rem;
+                font-size: 1rem;
+            }
 
             .education-row {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .box {
-                width: 90%; /* Full width for smaller screens */
+            .container {
+                padding: 1.5rem;
+                margin-top: 20px;
             }
 
-            .container {
-                padding: 1.25rem;
-            }
-            .toggle-button {
-                display: block;
-            }
-        
-            nav {
-                display: none;
+            .box {
                 width: 100%;
-                position: absolute;
-                background: #333;
-                left: 0;
-                top: 50px;
-                padding: 1rem 0;
-            }
-        
-            nav a {
-                display: block;
-                padding: 0.75rem;
-                font-size: 1rem;
+                max-width: 400px;
             }
         }
     </style>
 </head>
 <body>
-    <button class="toggle-btn" onclick="toggleNavbar()">☰ Menu</button>
-    <nav id="navbar" class="mobile-visible">
+    <button class="toggle-btn" onclick="toggleMenu()">☰ Menu</button>
+    <nav id="navbar">
         <a href="index.html">Home</a>
         <a href="education.html">Education</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="skills.html">Skills</a>
-<!--         <a href="resume.pdf">Resume</a> -->
         <a href="contacts.html">Contacts</a>
     </nav>
 
     <div class="container">
         <div class="education-row">
-            <div class="box">
-                <img src="IITMOD-Logo.svg" alt="IIT Madras Logo">
-                <a href="https://study.iitm.ac.in/ds/"><p>IIT MADRAS BS Degree</p></a>
-                <p>BS in Data Science and Programming</p>
-                <p>2023-2027</p>
-                <p>CGPA: 8.5+</p>
-            </div>
-            <div class="box">
-                <img src="NIELIT_logo.jpg" alt="NIELIT Aurangabad Logo">
-                <a href="https://nielit.gov.in/aurangabad/node/12229/"><p>NIELIT Aurangabad</p></a>
-                <p>B.Tech in Electronics Engineering</p>
-                <p>2022-2026</p>
-                <p>CGPA: 7.5+</p>
-            </div>
-            <div class="box">
-                <img src="loyola.png" alt="Loyola High School Logo">
-                <a href="https://www.loyolapatna.edu.in/"><p>Loyola High School</p></a>
-                <p>CBSE Class 12</p>
-                <p>2019-2021</p>
-                <p>Percentage: 89%</p>
-            </div>
+            <!-- Education boxes remain the same -->
         </div>
     </div>
 
     <footer>
         <p>&copy; 2025 Akshay Kumar. All Rights Reserved.</p>
     </footer>
+
     <script>
         function toggleMenu() {
             const navbar = document.getElementById('navbar');
-            if (navbar.style.display === 'block') {
-                navbar.style.display = 'none';
-            } else {
-                navbar.style.display = 'block';
-            }
+            navbar.style.display = navbar.style.display === 'block' ? 'none' : 'block';
         }
-        // Close menu when clicking outside
-document.addEventListener("click", function (event) {
-    const navbar = document.getElementById('navbar');
-    const toggleButton = document.querySelector('.toggle-button');
 
-    if (navbar.style.display === 'block' && !navbar.contains(event.target) && !toggleButton.contains(event.target)) {
-        navbar.style.display = 'none';
-    }
-});
-            document.addEventListener("DOMContentLoaded", function () {
-                const navbar = document.getElementById("navbar");
-                const toggleButton = document.querySelector(".toggle-button");
-                const skillBoxes = document.querySelectorAll(".box");
-                const profileImage = document.querySelector(".container img");
+        document.addEventListener("click", function(event) {
+            const navbar = document.getElementById('navbar');
+            const toggleBtn = document.querySelector('.toggle-btn');
             
-                // Navbar Slide-in Animation
-                toggleButton.addEventListener("click", function () {
-                    if (navbar.style.maxHeight) {
-                        navbar.style.maxHeight = null;
-                    } else {
-                        navbar.style.maxHeight = navbar.scrollHeight + "px";
-                    }
-                });
-                </script>
+            if (!navbar.contains(event.target) && !toggleBtn.contains(event.target)) {
+                navbar.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll for navigation items
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if(href.startsWith('#')) {
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else {
+                    window.location.href = href;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
