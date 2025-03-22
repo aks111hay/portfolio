@@ -1,329 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akshay Kumar - Portfolio</title>
-  <style>
-    :root {
-      --primary-color: #f4a261;
-      --secondary-color: #e76f51;
-      --dark-bg: #333;
-      --light-text: #fff;
-      --container-bg: rgba(163, 90, 192, 0.8);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshay Kumar - Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #f4a261;
+            --secondary-color: #e76f51;
+            --dark-bg: #333;
+            --light-text: #fff;
+            --container-bg: rgba(163, 90, 192, 0.8);
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background-color: #f4f7f6;
-      color: #333;
-      line-height: 1.6;
-      padding: 2rem;
-      text-align: center;
-    }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 2rem;
+            text-align: center;
+        }
 
-    /* Enhanced Navbar */
-    nav {
-      background-color: var(--dark-bg);
-      padding: 1rem 0;
-      border-radius: 0.5rem;
-      transition: max-height 0.3s ease-out;
-    }
+        /* Navbar */
+        nav {
+            background-color: var(--dark-bg);
+            padding: 1rem 0;
+            border-radius: 0.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
 
-    nav a {
-      display: inline-block;
-      color: var(--light-text);
-      text-decoration: none;
-      margin: 0 1rem;
-      font-size: 1.2rem;
-      padding: 0.5rem 1rem;
-      border-radius: 0.3rem;
-      transition: all 0.3s ease;
-      opacity: 0;
-      transform: translateY(-10px);
-    }
+        nav a {
+            display: inline-block;
+            color: var(--light-text);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.3rem;
+            transition: all 0.3s ease;
+        }
 
-    nav a:hover {
-      background-color: var(--primary-color);
-      transform: translateY(-2px);
-    }
+        nav a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
 
-    /* Profile Section */
-    .container {
-      max-width: 65rem;
-      margin: 2rem auto;
-      padding: 2.5rem;
-      background-color: var(--container-bg);
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      position: relative;
-      overflow: hidden;
-    }
+        /* Profile Section */
+        .container {
+            max-width: 65rem;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background-color: var(--container-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .container img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 5px solid var(--primary-color);
-      transition: transform 0.3s ease-in-out;
-      margin-bottom: 1.5rem;
-    }
+        .container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            transition: transform 0.3s ease-in-out;
+            margin-bottom: 1.5rem;
+        }
 
-    .container img:hover {
-      transform: scale(1.1) rotate(5deg);
-    }
+        .container img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
 
-    /* Skill Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
+        /* Skill Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
 
-    .box {
-      background-color: var(--primary-color);
-      color: var(--light-text);
-      padding: 1rem;
-      border-radius: 25px;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.4s ease;
-      min-height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+        .box {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
 
-    .box.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        .box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    .box:hover {
-      background-color: var(--secondary-color);
-      transform: translateY(-3px);
-    }
+        .box:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
 
-    /* Typing Animation */
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
 
-    @keyframes blink {
-      50% { border-color: transparent }
-    }
+            .toggle-button {
+                display: block;
+                background-color: var(--primary-color);
+                color: var(--light-text);
+                border: none;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                font-size: 1.2rem;
+                cursor: pointer;
+                margin: 1rem auto;
+                transition: all 0.3s;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                width: 80%;
+                max-width: 300px;
+            }
 
-    .typing-effect {
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid var(--light-text);
-      width: 0;
-      animation: typing 2.5s steps(15) forwards, blink 0.75s infinite;
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
-      margin: 1rem 0;
-    }
+            .toggle-button:hover {
+                background-color: var(--secondary-color);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            }
 
-    /* Mobile Optimization */
-    @media (max-width: 768px) {
-      body { padding: 1rem }
+            /* Mobile Navbar */
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 400px;
+                background: rgba(51, 51, 51, 0.98);
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                text-align: center;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
 
-      nav {
-        position: fixed;
-        top: 80px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 400px;
-        background: rgba(51, 51, 51, 0.98);
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-      }
+            nav a {
+                display: block;
+                padding: 1rem;
+                font-size: 1.1rem;
+                transition: all 0.3s ease;
+                color: var(--light-text);
+            }
 
-      nav a {
-        display: block;
-        color: var(--light-text);
-        padding: 1.2rem;
-        margin: 0.5rem 1rem;
-        font-size: 1.1rem;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-      }
+            nav a:hover {
+                background-color: var(--primary-color);
+            }
+        }
 
-      nav a:hover {
-        background-color: var(--primary-color);
-        transform: scale(1.05);
-      }
-
-      nav a:active {
-        transform: scale(0.95);
-      }
-
-      .toggle-button {
-        display: block;
-        margin: 1rem auto 2rem;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .container {
-        padding: 1.5rem;
-      }
-    }
-
-    footer {
-      margin-top: 3rem;
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    /* Toggle Menu Button */
-    .toggle-button {
-      display: none;
-      position: relative;
-      background-color: var(--primary-color);
-      color: var(--light-text);
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      margin: 1rem auto;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 80%;
-      max-width: 300px;
-    }
-
-    .toggle-button:hover {
-      background-color: var(--secondary-color);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .toggle-button:active {
-      transform: translateY(1px);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .toggle-button::after {
-      content: '☰ Menu';
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* Animate menu items when menu is shown */
-    nav.show-menu a {
-      opacity: 1;
-      transform: translateY(0);
-      transition-delay: calc(var(--index) * 0.1s);
-    }
-  </style>
+        footer {
+            margin-top: 3rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-  <button class="toggle-button" aria-label="Toggle menu">☰ Menu</button>
-  <nav id="navbar">
-    <a href="index.html">Home</a>
-    <a href="education.html">Education</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-    <a href="skills.html">Skills</a>
-    <a href="contacts.html">Contact</a>
-  </nav>
 
-  <div class="container">
-    <img src="akshay.jpg" alt="Akshay Kumar" loading="lazy">
-    <h1 class="typing-effect">Akshay Kumar</h1>
-    <div class="skills-grid">
-      <div class="box">Machine Learning</div>
-      <div class="box">Data Science</div>
-      <div class="box">Web Development</div>
-      <div class="box">Programming</div>
-      <div class="box">Software Development</div>
-      <div class="box">Computer Vision</div>
-      <div class="box">Deep Learning</div>
-      <div class="box">Natural Language Processing</div>
-      <div class="box">Data Structures & Algorithms</div>
+    <button class="toggle-button">☰ Menu</button>
+
+    <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="education.html">Education</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.pdf" target="_blank">Resume</a>
+        <a href="skills.html">Skills</a>
+        <a href="contacts.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <img src="akshay.jpg" alt="Akshay Kumar" loading="lazy">
+        <h1>Akshay Kumar</h1>
+        <div class="skills-grid">
+            <div class="box">Machine Learning</div>
+            <div class="box">Data Science</div>
+            <div class="box">Web Development</div>
+            <div class="box">Programming</div>
+            <div class="box">Software Development</div>
+            <div class="box">Computer Vision</div>
+            <div class="box">Deep Learning</div>
+            <div class="box">Natural Language Processing</div>
+            <div class="box">Data Structures & Algorithms</div>
+        </div>
     </div>
-  </div>
 
-  <footer>
-    <p>&copy; 2025 Akshay Kumar. All rights reserved.</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Akshay Kumar. All rights reserved.</p>
+    </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const navbar = document.getElementById('navbar');
-      const toggleButton = document.querySelector('.toggle-button');
-      const menuItems = document.querySelectorAll('nav a');
-      const boxes = document.querySelectorAll('.box');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            const toggleButton = document.querySelector('.toggle-button');
+            const boxes = document.querySelectorAll('.box');
 
-      // Function to update menu items' transition delay
-      const setMenuItemDelays = () => {
-        menuItems.forEach((item, index) => {
-          item.style.setProperty('--index', index);
+            toggleButton.addEventListener('click', () => {
+                if (navbar.style.maxHeight) {
+                    navbar.style.maxHeight = null;
+                } else {
+                    navbar.style.maxHeight = `${navbar.scrollHeight}px`;
+                }
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            boxes.forEach(box => observer.observe(box));
         });
-      };
+    </script>
 
-      // Toggle menu with animation
-      toggleButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        navbar.classList.toggle('show-menu');
-        if (navbar.classList.contains('show-menu')) {
-          navbar.style.maxHeight = navbar.scrollHeight + 'px';
-          setMenuItemDelays();
-        } else {
-          navbar.style.maxHeight = null;
-        }
-      });
-
-      // Close menu when clicking outside the navbar and toggle button
-      document.addEventListener('click', (e) => {
-        if (!navbar.contains(e.target) && !toggleButton.contains(e.target)) {
-          navbar.classList.remove('show-menu');
-          navbar.style.maxHeight = null;
-        }
-      });
-
-      // Intersection Observer for skill boxes
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      boxes.forEach(box => observer.observe(box));
-
-      // Prevent animation on window resize
-      let resizeTimer;
-      window.addEventListener('resize', () => {
-        document.body.classList.add('resize-animation-stopper');
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          document.body.classList.remove('resize-animation-stopper');
-        }, 400);
-      });
-    });
-  </script>
 </body>
 </html>
