@@ -11,102 +11,144 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f7f6;
             color: #333;
             line-height: 1.6;
             padding: 2rem;
+            text-align: center;
         }
+        
+        /* Navbar Styles */
         nav {
             background-color: #333;
-            padding: 1rem;
-            text-align: center;
-            margin-bottom: 2rem;
+            padding: 1rem 0;
             border-radius: 0.5rem;
         }
+        
         nav a {
+            display: inline-block;
             color: white;
             text-decoration: none;
             margin: 0 1rem;
             font-size: 1.2rem;
-            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.3rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+        
         nav a:hover {
-            color: #f4a261;
+            background-color: #f4a261;
+            color: #fff;
         }
+        
+        /* Profile Container */
         .container {
             max-width: 65rem;
-            margin: 0 auto;
-            text-align: center;
-            background-color: rgba(163, 90, 192, 0.588);
-            border-radius: 0.625rem;
+            margin: 2rem auto;
             padding: 2.5rem;
-            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+            background-color: rgba(163, 90, 192, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
+        
         .container img {
-            margin-top: 0.5rem;
             width: 9.375rem;
             height: 9.375rem;
             border-radius: 50%;
+            border: 5px solid #f4a261;
             margin-bottom: 1.25rem;
-            border: 0.3125rem solid #f4a261;
         }
+        
         .container h1 {
-            font-size: 2.25rem;
-            margin-bottom: 1.25rem;
-            color: #fcf9f9;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
         }
+        
+        /* Skill Boxes */
         .box {
             display: inline-block;
             background-color: #f4a261;
             color: white;
-            margin: 0.625rem 0.9375rem;
-            padding: 0.75rem 1.5rem;
-            font-size: 1.125rem;
-            border-radius: 1.5625rem;
-            transition: background-color 0.3s ease;
+            padding: 0.8rem 1.6rem;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
+        
         .box:hover {
             background-color: #e76f51;
+            transform: scale(1.05);
         }
+        
+        /* Footer */
         footer {
-            text-align: center;
-            margin-top: 2.5rem;
-            color: #777;
-            font-size: 0.875rem;
+            margin-top: 3rem;
+            color: #555;
+            font-size: 0.9rem;
         }
-
-        /* Toggle button styles */
+        
+        /* Mobile Menu Button */
         .toggle-button {
             display: none;
             background-color: #333;
             color: white;
             font-size: 1.5rem;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 7.2rem;
             border: none;
-            border-radius: 0.5rem;
+            border-radius: 5px;
             cursor: pointer;
+            margin-bottom: 1rem;
         }
+        
         .toggle-button:focus {
             outline: none;
         }
-
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            nav {
-                display: none;
+            body {
+                padding: 1rem;
             }
+        
             .toggle-button {
                 display: block;
-                margin-bottom: 0 auto 1rem;
             }
+        
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                background: #333;
+                left: 0;
+                top: 50px;
+                padding: 1rem 0;
+            }
+        
             nav a {
-                margin: 1rem 0;
-                font-size: 1rem;
                 display: block;
+                padding: 0.75rem;
+                font-size: 1rem;
             }
-
         }
+/* Skill Box Animation */
+.box {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Profile Image Hover Effect */
+.container img {
+    transition: transform 0.3s ease-in-out;
+}
+
+        
     </style>
 </head>
 <body>
@@ -150,7 +192,61 @@
                 navbar.style.display = 'block';
             }
         }
-    </script>
+        // Close menu when clicking outside
+document.addEventListener("click", function (event) {
+    const navbar = document.getElementById('navbar');
+    const toggleButton = document.querySelector('.toggle-button');
+
+    if (navbar.style.display === 'block' && !navbar.contains(event.target) && !toggleButton.contains(event.target)) {
+        navbar.style.display = 'none';
+    }
+});
+            document.addEventListener("DOMContentLoaded", function () {
+                const navbar = document.getElementById("navbar");
+                const toggleButton = document.querySelector(".toggle-button");
+                const skillBoxes = document.querySelectorAll(".box");
+                const profileImage = document.querySelector(".container img");
+            
+                // Navbar Slide-in Animation
+                toggleButton.addEventListener("click", function () {
+                    if (navbar.style.maxHeight) {
+                        navbar.style.maxHeight = null;
+                    } else {
+                        navbar.style.maxHeight = navbar.scrollHeight + "px";
+                    }
+                });
+            
+                // Skill Box Fade-in Animation on Load
+                skillBoxes.forEach((box, index) => {
+                    setTimeout(() => {
+                        box.style.opacity = "1";
+                        box.style.transform = "translateY(0)";
+                    }, index * 150); // Delay each box
+                });
+            
+                // Profile Image Hover Animation
+                profileImage.addEventListener("mouseover", () => {
+                    profileImage.style.transform = "scale(1.1)";
+                });
+                profileImage.addEventListener("mouseleave", () => {
+                    profileImage.style.transform = "scale(1)";
+                });
+            
+                // Scroll Animation - Fade in Sections
+                function revealOnScroll() {
+                    skillBoxes.forEach((box) => {
+                        const boxTop = box.getBoundingClientRect().top;
+                        if (boxTop < window.innerHeight - 50) {
+                            box.style.opacity = "1";
+                            box.style.transform = "translateY(0)";
+                        }
+                    });
+                }
+                window.addEventListener("scroll", revealOnScroll);
+            });
+            </script>
 
 </body>
 </html>
+
+
