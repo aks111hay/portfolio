@@ -192,6 +192,22 @@
             const navbar = document.getElementById("navbar");
             navbar.classList.toggle("mobile-visible");
         }
+        document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.querySelector(".toggle-btn");
+    const navbar = document.getElementById("navbar");
+
+    toggleButton.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevent immediate closing
+        navbar.classList.toggle("mobile-visible");
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!navbar.contains(event.target) && !toggleButton.contains(event.target)) {
+            navbar.classList.remove("mobile-visible");
+        }
+    });
+});
+
     </script>
 </body>
 </html>
