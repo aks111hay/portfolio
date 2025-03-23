@@ -1,0 +1,165 @@
+/* ---------------------------- */
+/* Global Reset & Body Styling  */
+/* ---------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* ---------------------------- */
+/* Navbar Styling               */
+/* ---------------------------- */
+#navbar {
+    display: flex;
+    justify-content: center;
+    background: #2c3e50;
+    transition: left 0.3s ease;
+}
+#navbar a {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background-color 0.3s;
+}
+#navbar a:hover {
+    background: #34495e;
+}
+
+/* ---------------------------- */
+/* Toggle Button Styling        */
+/* ---------------------------- */
+.toggle-button {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #2c3e50;
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    display: none; /* hidden by default on larger screens */
+}
+
+/* ---------------------------- */
+/* Container & Image Styling    */
+/* ---------------------------- */
+.container {
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+}
+.container img {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* ---------------------------- */
+/* Typing Animation Effect      */
+/* ---------------------------- */
+.typing-effect {
+    font-size: 2.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #2c3e50;
+    width: 0;
+    margin: 0 auto 30px;
+    animation: typing 3s steps(20, end) forwards, blink 0.75s step-end infinite;
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* ---------------------------- */
+/* Skills Grid & Fade-in Boxes  */
+/* ---------------------------- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Staggered animation delays for each box */
+.box:nth-child(1) { animation-delay: 0.2s; }
+.box:nth-child(2) { animation-delay: 0.4s; }
+.box:nth-child(3) { animation-delay: 0.6s; }
+.box:nth-child(4) { animation-delay: 0.8s; }
+.box:nth-child(5) { animation-delay: 1s; }
+.box:nth-child(6) { animation-delay: 1.2s; }
+.box:nth-child(7) { animation-delay: 1.4s; }
+.box:nth-child(8) { animation-delay: 1.6s; }
+.box:nth-child(9) { animation-delay: 1.8s; }
+
+/* ---------------------------- */
+/* Footer Styling               */
+/* ---------------------------- */
+footer {
+    text-align: center;
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ---------------------------- */
+/* Mobile Responsive Styles     */
+/* ---------------------------- */
+@media (max-width: 768px) {
+    /* Display toggle button on mobile */
+    .toggle-button {
+        display: block;
+    }
+    /* Navbar becomes a vertical sidebar */
+    #navbar {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -250px; /* Hidden off-canvas */
+        width: 250px;
+        height: 100%;
+        background: #2c3e50;
+        z-index: 999;
+    }
+    #navbar a {
+        padding: 15px;
+        border-bottom: 1px solid #34495e;
+    }
+    #navbar.active {
+        left: 0; /* Slide into view */
+    }
+    /* Adjust container spacing for mobile view */
+    .container {
+        margin-top: 100px;
+    }
+}
