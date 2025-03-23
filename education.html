@@ -4,172 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src=script.js></script>
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+       /* Container Styling */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
 
-        /* Body Styling */
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f4f7f6;
-            line-height: 1.6;
-            padding: 1.25rem;
-        }
+/* Education Grid */
+.education-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto adjusts columns */
+    gap: 20px; /* Space between grid items */
+}
 
-        /* Improved Toggle Button */
-        .toggle-btn {
-            display: none;
-            background-color: #333;
-            color: white;
-            font-size: 1.2rem;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            margin: 1rem auto;
-            width: 90%;
-            max-width: 300px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+/* Individual Box Styling */
+.box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .toggle-btn:hover {
-            background-color: #444;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
+/* Hover Effect */
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
 
-        /* Navbar Styles */
-        nav {
-            background-color: #333;
-            padding: 1rem 0;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        nav a {
-            display: inline-block;
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1.1rem;
-            padding: 0.8rem 1.2rem;
-            border-radius: 0.3rem;
-            transition: all 0.3s ease;
-        }
-        
-        nav a:hover {
-            background-color: #f4a261;
-            color: #fff;
-            transform: translateY(-2px);
-        }
+/* Image Styling */
+.box img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
 
-        /* Container Styling */
-        .container {
-            margin-top: 80px;
-            max-width: 1200px;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            background: white;
-        }
+/* Text Styling */
+.box p {
+    font-size: 1rem;
+    color: #333;
+    margin: 5px 0;
+}
 
-        .education-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
+/* Links Styling */
+.box a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #007BFF;
+}
 
-        .box {
-            flex: 1;
-            min-width: 300px;
-            margin: 20px 0;
-            padding: 2rem;
-            text-align: center;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
+.box a:hover {
+    text-decoration: underline;
+}
 
-        .box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-        }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .education-row {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust column width for smaller screens */
+    }
+}
 
-        .box img {
-            max-width: 150px;
-            height: auto;
-            margin-bottom: 1.5rem;
-            object-fit: contain;
-        }
-
-        .box a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 600;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .box a:hover {
-            color: #f4a261;
-        }
-
-        /* Footer Styling */
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            color: #777;
-            font-size: 0.875rem;
-            padding: 2rem 0;
-        }
-
-        /* Responsive Styling */
-        @media (max-width: 768px) {
-            .toggle-btn {
-                display: block;
-            }
-        
-            nav {
-                display: none;
-                width: 90%;
-                position: absolute;
-                left: 5%;
-                top: 80px;
-                background: #333;
-                border-radius: 10px;
-                padding: 1rem 0;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            }
-        
-            nav a {
-                display: block;
-                margin: 0.5rem 1rem;
-                font-size: 1rem;
-            }
-
-            .education-row {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .container {
-                padding: 1.5rem;
-                margin-top: 20px;
-            }
-
-            .box {
-                width: 100%;
-                max-width: 400px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -212,36 +112,5 @@
     <footer>
         <p>&copy; 2025 Akshay Kumar. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        function toggleMenu() {
-            const navbar = document.getElementById('navbar');
-            navbar.style.display = navbar.style.display === 'block' ? 'none' : 'block';
-        }
-
-        document.addEventListener("click", function(event) {
-            const navbar = document.getElementById('navbar');
-            const toggleBtn = document.querySelector('.toggle-btn');
-            
-            if (!navbar.contains(event.target) && !toggleBtn.contains(event.target)) {
-                navbar.style.display = 'none';
-            }
-        });
-
-        // Smooth scroll for navigation items
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const href = this.getAttribute('href');
-                if(href.startsWith('#')) {
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                } else {
-                    window.location.href = href;
-                }
-            });
-        });
-    </script>
 </body>
 </html>
