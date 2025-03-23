@@ -143,6 +143,7 @@
 
             /* Mobile Navbar */
             nav {
+                display:none;
                 top: 70px;
                 left: 50%;
                 transform: translateX(-50%);
@@ -213,31 +214,6 @@
         <p>&copy; 2025 Akshay Kumar. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navbar = document.getElementById('navbar');
-            const toggleButton = document.querySelector('.toggle-button');
-            const boxes = document.querySelectorAll('.box');
-
-            toggleButton.addEventListener('click', () => {
-                if (navbar.style.maxHeight) {
-                    navbar.style.maxHeight = null;
-                } else {
-                    navbar.style.maxHeight = `${navbar.scrollHeight}px`;
-                }
-            });
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            boxes.forEach(box => observer.observe(box));
-        });
-    </script>
 <style>
     /* Add to your existing styles */
     .typing-effect {
@@ -272,6 +248,58 @@
 </style>
 
 <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbar = document.getElementById('navbar');
+        const toggleButton = document.querySelector('.toggle-button');
+        const navLinks = document.querySelectorAll('nav a');
+    
+        // Toggle menu function
+        const toggleMenu = () => {
+            navbar.classList.toggle('show');
+            
+            // Animate menu items
+            navLinks.forEach((link, index) => {
+                link.style.transitionDelay = `${index * 0.1}s`;
+            });
+        };
+    
+        // Close menu function
+        const closeMenu = () => {
+            navbar.classList.remove('show');
+        };
+    
+        // Toggle button click handler
+        toggleButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+    
+        // Close menu when clicking outside or on a link
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) {
+                closeMenu();
+            }
+        });
+    
+        // Close menu when clicking nav links (mobile)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMenu();
+                }
+            });
+        });
+    
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navbar.classList.remove('show');
+            }
+        });
+    });
+
+//typing-effect animation
 document.addEventListener('DOMContentLoaded', () => {
     // Add intersection observer for name animation
     const nameElement = document.querySelector('.typing-effect');
