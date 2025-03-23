@@ -4,130 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <style>
-        /* Reset margins and padding for all elements */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+       .box {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
 
-        /* Body styling with a purple gradient background */
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #6a1b9a, #9c4dcc);
-            color: #fff;
-            line-height: 1.6;
-            margin: 20px;
-        }
+h2 {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
 
-        /* Navigation styling */
-        nav {
-            background-color: #333;
-            padding: 15px;
-            text-align: center;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
+.pic {
+    width: 80px;
+    height: auto;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
+.pic:hover {
+    transform: scale(1.1);
+}
 
-        nav a:hover {
-            color: #f4a261;
-        }
+.languages, .databases, .frameworks, .tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    justify-items: center;
+}
 
-        /* Main container styling */
-        .box {
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 1000px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            color: #333;
-        }
-
-        .box h2 {
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        /* Flexbox for the boxes to arrange images neatly */
-        .box img {
-            object-fit: contain;
-            margin: 10px;
-            border-radius: 8px;
-        }
-
-        .box.languages, 
-        .box.databases, 
-        .box.frameworks, 
-        .box.tools {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        /* Image container styling */
-        .pic {
-            width: 80px;
-            height: 80px;
-            margin: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .pic:hover {
-            transform: scale(1.1);
-        }
-
-        /* Footer styling */
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #eee;
-            font-size: 14px;
-        }
-
-        /* Responsive Styling */
-        @media (max-width: 768px) {
-            nav a {
-                display: block;
-                margin: 10px 0;
-                font-size: 16px;
-            }
-
-            .box img {
-                width: 60px;
-                height: 60px;
-            }
-
-            .box h2 {
-                font-size: 24px;
-            }
-
-            footer {
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .box img {
-                width: 50px;
-                height: 50px;
-            }
-
-            .box h2 {
-                font-size: 20px;
-            }
-        }
     </style>
 </head>
 <body>
