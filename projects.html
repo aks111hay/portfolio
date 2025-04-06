@@ -7,70 +7,60 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
     <style>
-       /* Container Styling */
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    text-align: center;
-}
+        /* Updated Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 15px;
+        }
 
-/* Welcome Section */
-.container h2 {
-    font-size: 2rem;
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
+        /* Project Item Container */
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-.container p {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.5;
-}
+        /* Image Styling within Project Item */
+        .project-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
 
-/* GitHub Link Styling */
-.github-link {
-    font-weight: bold;
-    text-decoration: none;
-    color: #007BFF;
-}
+        /* Hover Effects */
+        .project-item:hover {
+            transform: translateY(-5px);
+        }
 
-.github-link:hover {
-    text-decoration: underline;
-}
+        .project-item:hover img {
+            transform: scale(1.05);
+        }
 
-/* Projects Grid */
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 20px;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 10px;
-}
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            .project-item img {
+                height: 180px;
+            }
+        }
 
-/* Individual Project Images */
-.projects img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover Effect */
-.projects img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .projects {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust column width */
-    }
-}
- 
+        @media (max-width: 480px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -92,24 +82,26 @@
             <a href="https://github.com/aks111hay" target="_blank" class="github-link">GitHub Profile</a>.
         </p>
     </div>
-      <div class="projects">
-        <img src="Ai chatbot.png">
-      </div>
-      <div class="projects">
-        <img src="smartparking.png">
-      </div>
-      <div class="projects">
-        <img src="quizmaster.png">
-      </div>
-    <div class="projects">
-        <img src="influencemart.png">
+      <div class="projects-grid">
+        <div class="project-item">
+            <img src="Ai chatbot.png" alt="AI Chatbot Project">
+        </div>
+        <div class="project-item">
+            <img src="smartparking.png" alt="Smart Parking System">
+        </div>
+        <div class="project-item">
+            <img src="quizmaster.png" alt="Quiz Master Application">
+        </div>
+        <div class="project-item">
+            <img src="influencemart.png" alt="InfluenceMart Platform">
+        </div>
+        <div class="project-item">
+            <img src="householdservice.png" alt="Household Services App">
+        </div>
+        <div class="project-item">
+            <img src="pca.png" alt="PCA Analysis Project">
+        </div>
     </div>
-    <div class="projects">
-      <img src="householdservice.png">
-  </div>
-  <div class="projects">
-    <img src="pca.png">
-</div>
     <footer>
         <p>&copy; 2025 My Portfolio. Built with ❤️ by <a href="https://github.com/aks111hay" target="_blank">Akshay Kumar</a>.</p>
     </footer>
